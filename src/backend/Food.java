@@ -8,11 +8,11 @@ public class Food {
 		this.setFoodUnits(foodUnits);
 	}
 
-	public int getFoodUnits() {
+	public synchronized int getFoodUnits() {
 		return foodUnits;
 	}
 
-	public void setFoodUnits(int foodUnits) {
+	public synchronized void setFoodUnits(int foodUnits) {
 		this.foodUnits = foodUnits;
 	}
 	
