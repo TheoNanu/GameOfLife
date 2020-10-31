@@ -1,19 +1,21 @@
 package backend;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Food {
 	
-	private int foodUnits = 0; // variable accessed by multiple threads, needs to be protected
+	public static AtomicInteger foodUnits; // variable accessed by multiple threads, needs to be protected
 	
-	public Food(int foodUnits) {
-		this.setFoodUnits(foodUnits);
+	public Food(int fUnits) {
+		foodUnits = new AtomicInteger(fUnits);
 	}
 
-	public synchronized int getFoodUnits() {
+	public static synchronized AtomicInteger getFoodUnits() {
 		return foodUnits;
 	}
 
-	public synchronized void setFoodUnits(int foodUnits) {
-		this.foodUnits = foodUnits;
+	public static synchronized void setFoodUnits(int fUnits) {
+		foodUnits = new AtomicInteger(fUnits);
 	}
 	
 

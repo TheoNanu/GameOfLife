@@ -22,13 +22,12 @@ public abstract class Celula {
 	
 	public void eat() {
 		System.out.println("Eating...");
-		lock.lock();
-		int fUnits = food.getFoodUnits();
-		food.setFoodUnits(fUnits - 1);
+		//lock.lock();
+		Food.foodUnits.incrementAndGet();
 		numberOfMeals++;
-		fUnits = this.food.getFoodUnits();
-		System.out.println("Food remaining after I ate: " + fUnits);
-		lock.unlock();
+		//fUnits = this.food.getFoodUnits();
+		System.out.println("Food remaining after I ate: " + Food.getFoodUnits());
+		//lock.unlock();
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {

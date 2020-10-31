@@ -22,6 +22,9 @@ public class CelulaAsexuata extends Celula implements Runnable{
 		// at this moment the cell is hungry
 		while(System.currentTimeMillis() - start < super.getStarvationTime()) {
 			int currentFood = super.getFoodUnits();
+			System.out.println("Food units: " + currentFood);
+			System.out.println(Thread.currentThread().getName());
+			System.out.println();
 			if(currentFood > 0) // if there is food, the cell eats
 			{
 				//super.getLock().lock();
