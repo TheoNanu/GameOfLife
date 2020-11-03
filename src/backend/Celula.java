@@ -23,10 +23,10 @@ public abstract class Celula {
 	public void eat() {
 		System.out.println("Eating...");
 		//lock.lock();
-		Food.foodUnits.incrementAndGet();
+		this.food.decrementUnits();
 		numberOfMeals++;
-		//fUnits = this.food.getFoodUnits();
-		System.out.println("Food remaining after I ate: " + Food.getFoodUnits());
+		int fUnits = this.food.getFoodUnits();
+		System.out.println("Food remaining after I ate: " + fUnits);
 		//lock.unlock();
 		try {
 			Thread.sleep(1000);
@@ -74,5 +74,9 @@ public abstract class Celula {
 	public void setNumberOfMeals(int value)
 	{
 		this.numberOfMeals = value;
+	}
+	
+	public void incrementMeals() {
+		this.numberOfMeals++;
 	}
 }
