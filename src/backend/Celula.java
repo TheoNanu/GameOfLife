@@ -25,15 +25,15 @@ public abstract class Celula {
 		//lock.lock();
 		this.food.decrementUnits();
 		numberOfMeals++;
-		int fUnits = this.food.getFoodUnits();
-		System.out.println("Food remaining after I ate: " + fUnits);
+		/*int fUnits = this.food.getFoodUnits();
+		System.out.println("Food remaining after I ate: " + fUnits);*/
 		//lock.unlock();
-		try {
+		/*try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public int getFullTime() {

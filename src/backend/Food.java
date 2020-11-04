@@ -24,8 +24,16 @@ public class Food {
 			return false;
 	}
 	
-	public synchronized void decrementUnits()
+	public synchronized boolean decrementUnits()
 	{
-		this.foodUnits--;
+		if(this.foodUnits > 0)
+		{
+			System.out.println("Eating...");
+			this.foodUnits--;
+			System.out.println("Food remaining after I ate: " + this.foodUnits);
+			return true;
+		}
+		else
+			return false;
 	}
 }

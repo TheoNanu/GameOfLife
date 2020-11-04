@@ -25,16 +25,9 @@ public class CelulaAsexuata extends Celula implements Runnable{
 			//System.out.println("Food units: " + currentFood);
 			//System.out.println(Thread.currentThread().getName());
 			//System.out.println();
-			if(super.getFood().hasUnits()) // if there is food, the cell eats
+			if(super.getFood().decrementUnits())
 			{
-				//super.getLock().lock();
-				super.eat(); // the cell is full now
-				//super.getLock();
-				/*super.getFood().decrementUnits();
-				System.out.println("Eating...");
-				int value = super.getFoodUnits();
-				System.out.println("Food remaining after I ate: " + value);
-				super.incrementMeals();*/
+				super.incrementMeals();
 				if(super.getNumberOfMeals() == 9)
 				{
 					this.reproduce();
@@ -46,6 +39,27 @@ public class CelulaAsexuata extends Celula implements Runnable{
 				}
 				start = System.currentTimeMillis(); // now the cell is hungry, reset the timer
 			}
+			/*if(super.getFood().hasUnits()) // if there is food, the cell eats
+			{
+				//super.getLock().lock();
+				super.eat(); // the cell is full now
+				//super.getLock();
+				/*return true;
+				System.out.println("Eating...");
+				int value = super.getFoodUnits();
+				System.out.println("Food remaining after I ate: " + value);
+				super.incrementMeals();*/
+				/*if(super.getNumberOfMeals() == 9)
+				{
+					this.reproduce();
+				}
+				long lastTimeAte = System.currentTimeMillis();
+				// do nothing while the cell is full
+				while(System.currentTimeMillis() - lastTimeAte > super.getFullTime()) {
+					
+				}
+				start = System.currentTimeMillis(); // now the cell is hungry, reset the timer
+			}*/
 			
 		}
 		super.die(); // if there was no chance for the cell to eat while it was starving, the cell dies
