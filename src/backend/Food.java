@@ -7,14 +7,6 @@ public class Food {
 	public Food(int fUnits) {
 		this.foodUnits = fUnits;
 	}
-
-	public synchronized int getFoodUnits() {
-		return this.foodUnits;
-	}
-
-	public synchronized void setFoodUnits(int fUnits) {
-		this.foodUnits = fUnits;
-	}
 	
 	public synchronized boolean hasUnits()
 	{
@@ -35,5 +27,11 @@ public class Food {
 		}
 		else
 			return false;
+	}
+	
+	public synchronized void increaseUnitsBy(int value)
+	{
+		this.foodUnits += value;
+		System.out.println("Food units after increment: " + this.foodUnits);
 	}
 }
